@@ -1,0 +1,108 @@
+.dashboard-page {
+  min-height: 90vh;
+  background: #f1f8e9;
+  padding: 40px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+  color: #2e7d32;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  color: #555;
+  font-size: 18px;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.stat-card h3 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  color: #2e7d32;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.history-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.history-section h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.history-table {
+  overflow-x: auto;
+}
+
+.history-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th {
+  background: #2e7d32;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+.history-table td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.history-table tr:hover {
+  background: #f1f8e9;
+}
+
+@media (max-width: 900px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 20px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+}

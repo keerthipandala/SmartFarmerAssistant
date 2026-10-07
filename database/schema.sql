@@ -1,0 +1,14 @@
+CREATE TABLE users(
+ id SERIAL PRIMARY KEY,
+ name VARCHAR(100),
+ email VARCHAR(100) UNIQUE,
+ password VARCHAR(255)
+);
+
+CREATE TABLE predictions(
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER,
+ prediction_type VARCHAR(50),
+ result TEXT,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
