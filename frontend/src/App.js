@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -12,70 +13,32 @@ import Yield from "./pages/Yield";
 import History from "./pages/History";
 import Weather from "./pages/Weather";
 
+import ProtectedRoute from "./ProtectedRoute";
+
 function App() {
   return (
     <BrowserRouter>
-
       <Navbar />
 
       <Routes>
+        {/* Public pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/weather" element={<Weather />} />
 
-        {/* Home Page */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        {/* Protected pages: login required */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/crop" element={<Crop />} />
+          <Route path="/fertilizer" element={<Fertilizer />} />
+          <Route path="/yield" element={<Yield />} />
+          <Route path="/history" element={<History />} />
+        </Route>
 
-        {/* Login Page */}
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-
-        {/* Register Page */}
-        <Route
-          path="/register"
-          element={<Register />}
-        />
-
-        {/* Dashboard Page */}
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
-
-        {/* Crop Page */}
-        <Route
-          path="/crop"
-          element={<Crop />}
-        />
-
-        {/* Fertilizer Page */}
-        <Route
-          path="/fertilizer"
-          element={<Fertilizer />}
-        />
-        
-        {/* Yield Page */}
-        <Route
-          path="/yield"
-          element={<Yield />}
-        />
-
-        {/* History Page */}
-        <Route
-          path="/history"
-          element={<History />}
-        />
-
-        {/* Weather Page */}
-        <Route
-          path="/weather"
-          element={<Weather />}
-        />
-
+        {/* Unknown URLs return to Home */}
+        <Route path="*" element={<Home />} />
       </Routes>
-
     </BrowserRouter>
   );
 }

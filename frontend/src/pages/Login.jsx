@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
@@ -46,29 +47,15 @@ function Login() {
 
       setMessage("Login successful!");
 
-      // Save user information
-      localStorage.setItem(
-        "user_id",
-        data.user_id
-      );
+      localStorage.setItem("user_id", data.user_id);
+      localStorage.setItem("name", data.name);
+      localStorage.setItem("email", data.email);
+      localStorage.setItem("user", JSON.stringify(data));
 
-      localStorage.setItem(
-        "name",
-        data.name
-      );
-
-      localStorage.setItem(
-        "email",
-        data.email
-      );
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify(data)
-      );
+      window.dispatchEvent(new Event("userChanged"));
 
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/");
       }, 1000);
 
     } catch (err) {
@@ -79,7 +66,6 @@ function Login() {
 
   return (
     <div className="login-page">
-
       <div className="login-card">
 
         <h1>🌾 Welcome Back</h1>
@@ -96,9 +82,7 @@ function Login() {
             type="email"
             placeholder="Enter your email"
             value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
 
@@ -108,9 +92,7 @@ function Login() {
             type="password"
             placeholder="Enter your password"
             value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
 
@@ -119,6 +101,13 @@ function Login() {
           </button>
 
         </form>
+
+        <p className="register-prompt">
+          Don't have an account?{" "}
+          <Link to="/register" className="register-link">
+            Create Account
+          </Link>
+        </p>
 
         {message && (
           <p className="success-message">
@@ -133,7 +122,6 @@ function Login() {
         )}
 
       </div>
-
     </div>
   );
 }

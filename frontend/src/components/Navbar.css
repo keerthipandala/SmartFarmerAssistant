@@ -1,11 +1,220 @@
-.navbar{
-  background:#2e7d32;
-  padding:15px;
+
+.app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #e3ece5;
+  box-shadow: 0 4px 18px rgba(32, 75, 45, 0.06);
+  backdrop-filter: blur(12px);
 }
 
-.navbar a{
-  color:white;
-  text-decoration:none;
-  margin-right:20px;
-  font-weight:bold;
+.navbar-inner {
+  max-width: 1450px;
+  min-height: 76px;
+  margin: 0 auto;
+  padding: 12px 28px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: #245d3a;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 13px;
+  background: #e5f5e9;
+  font-size: 24px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 11px;
+  border-radius: 10px;
+  color: #56675b;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.navbar-link:hover {
+  background: #f0f7f1;
+  color: #28764a;
+}
+
+.navbar-link.active {
+  background: #e5f5e9;
+  color: #246c41;
+  font-weight: 800;
+}
+
+.nav-icon {
+  font-size: 15px;
+}
+
+.navbar-account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.account-avatar {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 50%;
+  background: #dff1e4;
+  color: #246c41;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.account-name {
+  max-width: 100px;
+  overflow: hidden;
+  color: #35483a;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar-auth,
+.navbar-register,
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar-auth {
+  border: 1px solid #d7e5da;
+  background: #fff;
+  color: #28764a;
+}
+
+.navbar-auth:hover {
+  background: #f0f7f1;
+}
+
+.navbar-register,
+.logout-button {
+  border: 1px solid #28764a;
+  background: #28764a;
+  color: #fff;
+}
+
+.navbar-register:hover,
+.logout-button:hover {
+  border-color: #205f3b;
+  background: #205f3b;
+}
+
+.logout-button {
+  font-family: inherit;
+}
+
+@media (max-width: 1150px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar-account {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-inner {
+    padding: 12px 14px;
+  }
+
+  .navbar-brand {
+    font-size: 15px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 21px;
+  }
+
+  .navbar-links {
+    gap: 5px;
+  }
+
+  .navbar-link {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .account-name {
+    display: none;
+  }
+
+  .navbar-auth,
+  .navbar-register,
+  .logout-button {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-link,
+  .navbar-auth,
+  .navbar-register,
+  .logout-button {
+    transition: none;
+  }
 }

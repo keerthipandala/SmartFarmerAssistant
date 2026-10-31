@@ -1,6 +1,26 @@
+# Environment variables
 .env
+
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# React dependencies and build
 frontend/node_modules/
 frontend/build/
-models/yield_model.pkl
+
+# Python generated files
+*.log
+
+# IDE files
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+# Old Streamlit backup
+old_streamlit_backup/
